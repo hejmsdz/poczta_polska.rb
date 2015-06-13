@@ -9,6 +9,11 @@ module PocztaPolska
   ManyPackagesForbiddenError = Class.new(Error)
   DateRangeError = Class.new(Error)
 
+  # Creates a Tracker instance. Authentication is optional,
+  # it will allow you to check multiple packages in a single request.
+  # @param username [String]
+  # @param password [String]
+  # @return [Tracker] a Tracker instance
   def self.tracker(username = nil, password = nil)
     if username.nil? && password.nil?
       Tracker.new('https://tt.poczta-polska.pl/Sledzenie/services/Sledzenie?wsdl', 'sledzeniepp', 'PPSA')
