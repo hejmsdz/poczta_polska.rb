@@ -9,9 +9,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Mikołaj Rozwadowski"]
   spec.email         = ["mikolaj.rozwadowski@outlook.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Track Polish Post packages in Ruby"
+  spec.description   = "With this gem you can monitor Polish Post parcels and registered mail "
+                       "as well as packages shipped by Pocztex. It allows you to see basic data "
+                       "about the consignment as well as all the post offices it has gone through "
+                       "(including their locations and opening hours). The data is downloaded from "
+                       "[a public SOAP API of the Polish Post](http://www.poczta-polska.pl/pliki/webservices/"
+                       "Metody%20i%20struktury%20uslugi%20sieciowej%20Poczty%20Polskiej%20SA.pdf) "
+                       "and wrapped into Ruby classes for your convenience."
+  spec.homepage      = "https://github.com/hejmsdz/poczta_polska.rb"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -27,6 +33,10 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "savon", "~> 2.11.1"
+  spec.add_dependency "rubyntlm", "~> 0.5.0"
+
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec", "~> 3.3"
 end

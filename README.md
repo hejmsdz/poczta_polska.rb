@@ -1,8 +1,11 @@
 # PocztaPolska
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/poczta_polska`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+With this gem you can monitor Polish Post parcels and registered mail
+as well as packages shipped by Pocztex. It allows you to see basic data
+about the consignment as well as all the post offices it has gone through
+(including their locations and opening hours). The data is downloaded from
+[a public SOAP API of the Polish Post](http://www.poczta-polska.pl/pliki/webservices/Metody%20i%20struktury%20uslugi%20sieciowej%20Poczty%20Polskiej%20SA.pdf)
+and wrapped into Ruby classes for your convenience.
 
 ## Installation
 
@@ -22,17 +25,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'poczta_polska'
 
-## Development
+package_id = 'testp0'
+# this package ID generates test data
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+tr = PocztaPolska::tracker
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+begin
+  pkg = tr.check(package_id)
+
+  puts "A package was sent from #{pkg.office_from} to #{pkg.office_to}."
+
+  pkg.events.each do |event|
+    datetime = event.time.strftime("%F, %R")
+    puts "Finally:" if event.final?
+    puts "Time: #{datetime}"
+    puts "Event: #{event.name}"
+    puts "Post office: #{event.office}"
+    puts
+  end
+
+rescue PocztaPolska::UnknownPackageError
+  puts "The package couldn't be found"
+rescue PocztaPolska::WrongPackageError
+  puts "The package ID is wrong"
+end
+
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/poczta_polska/fork )
+1. Fork it ( https://github.com/hejmsdz/poczta_polska.rb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
