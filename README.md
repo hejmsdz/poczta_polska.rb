@@ -1,5 +1,7 @@
 # PocztaPolska
 
+[Gem at RubyGems.org](https://rubygems.org/gems/poczta_polska) | [Documentation](http://www.rubydoc.info/gems/poczta_polska)
+
 With this gem you can monitor Polish Post parcels and registered mail
 as well as packages shipped by Pocztex. It allows you to see basic data
 about the consignment as well as all the post offices it has gone through
@@ -57,7 +59,7 @@ end
 
 ## Contributing
 
-1. Fork it ( https://github.com/hejmsdz/poczta_polska.rb/fork )
+1. Fork it (https://github.com/hejmsdz/poczta_polska.rb/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
