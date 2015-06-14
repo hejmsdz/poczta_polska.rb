@@ -1,4 +1,3 @@
-require 'poczta_polska/dynamic_reader'
 require 'poczta_polska/office'
 
 module PocztaPolska
@@ -8,19 +7,33 @@ module PocztaPolska
     # @return [Hash] Original data from the XML response
     attr_reader :data
 
-    # Dynamic methods map
-    # @see DynamicReader
-    ATTR_MAP = {
-      time: [:czas, lambda { |time| DateTime.parse(time) }],
-      code: [:kod, :to_sym],
-      name: [:nazwa, :to_s],
-      office: [:jednostka, :nazwa, :to_s],
-      final?: [:konczace, nil]
-    }
-    include DynamicReader
-
     def initialize(data)
       @data = data
+    end
+
+    # @return [DateTime] date and time of the event
+    def time
+      DateTime.parse(@data[:czas])
+    end
+
+    # @return [Symbol] code of the event
+    def code
+      @data[:kod].to_sym
+    end
+
+    # @return [String] human-readable name of the event
+    def name
+      @data[:nazwa].to_s
+    end
+
+    # @return [String] name of the post office
+    def office
+      @data[:jednostka][:nazwa].to_s
+    end
+
+    # @return [Boolean] whether this is the final event (delivery, receiving in the post office, etc.)
+    def final?
+      @data[:konczace]
     end
 
     # Returns detailed information about the post office connected with this event,

@@ -1,6 +1,6 @@
 # PocztaPolska
 
-[Gem at RubyGems.org](https://rubygems.org/gems/poczta_polska) | [Documentation](http://www.rubydoc.info/gems/poczta_polska)
+[Gem at RubyGems.org](https://rubygems.org/gems/poczta_polska) | [Documentation](http://www.rubydoc.info/gems/poczta_polska/0.1.1)
 
 With this gem you can monitor Polish Post parcels and registered mail
 as well as packages shipped by Pocztex. It allows you to see basic data
