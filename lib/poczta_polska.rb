@@ -1,5 +1,3 @@
-require "poczta_polska/version"
-
 module PocztaPolska
 
   Error = Class.new(RuntimeError)
@@ -21,9 +19,10 @@ module PocztaPolska
       Tracker.new('https://ws.poczta-polska.pl/Sledzenie/services/Sledzenie?wsdl', username, password)
     end
   end
-
-  require "poczta_polska/tracker"
-  require "poczta_polska/package"
-  require "poczta_polska/office"
-  require "poczta_polska/event"
 end
+
+require "poczta_polska/version"
+require "poczta_polska/tracker"
+require "poczta_polska/package"
+require "poczta_polska/office"
+require "poczta_polska/event"

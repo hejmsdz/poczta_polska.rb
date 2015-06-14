@@ -1,6 +1,3 @@
-require 'poczta_polska/office'
-require 'poczta_polska/event'
-
 module PocztaPolska
   # The Package class contains all necessary information
   # about a tracked package.

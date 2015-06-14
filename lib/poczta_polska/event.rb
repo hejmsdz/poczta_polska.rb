@@ -1,5 +1,3 @@
-require 'poczta_polska/office'
-
 module PocztaPolska
   # The Event class stores information about a point
   # on the package's way.
