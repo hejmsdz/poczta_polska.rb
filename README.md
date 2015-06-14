@@ -33,7 +33,7 @@ require 'poczta_polska'
 package_id = 'testp0'
 # this package ID generates test data
 
-tr = PocztaPolska::tracker
+tr = PocztaPolska.tracker
 
 begin
   pkg = tr.check(package_id)
