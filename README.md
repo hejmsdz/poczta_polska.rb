@@ -1,6 +1,6 @@
 # PocztaPolska
 
-[Gem at RubyGems.org](https://rubygems.org/gems/poczta_polska) | [Documentation](http://www.rubydoc.info/gems/poczta_polska/0.1.1)
+[Gem at RubyGems.org](https://rubygems.org/gems/poczta_polska) | [Documentation](http://www.rubydoc.info/gems/poczta_polska/0.1.2)
 
 With this gem you can monitor Polish Post parcels and registered mail
 as well as packages shipped by Pocztex. It allows you to see basic data
@@ -56,6 +56,16 @@ rescue PocztaPolska::WrongPackageError
 end
 
 ```
+## Changelog
+### 0.1.0
+Initial version.
+
+### 0.1.1
+Removed the DynamicReader module and substituded methods defined by it
+with explicitly wrote (and documented) methods.
+
+### 0.1.2
+Fixed the `Tracker#check_many` method, it didn't work at all before.
 
 ## Contributing
 

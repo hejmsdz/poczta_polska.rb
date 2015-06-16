@@ -81,7 +81,7 @@ module PocztaPolska
       when -99 then raise Error
       end
 
-      data[:przesylki].map { |p| Package.new(p) }
+      data[:przesylki][:przesylka].map { |p| Package.new(p) }
     end
   end
 end
