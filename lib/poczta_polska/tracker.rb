@@ -81,7 +81,14 @@ module PocztaPolska
       when -99 then raise Error
       end
 
-      data[:przesylki][:przesylka].map { |p| Package.new(p) }
+      pkgs = data[:przesylki][:przesylka]
+
+      if pkgs.is_a?(Hash)
+        # actually checked only one package
+        [Package.new(pkgs)]
+      else
+        pkgs.map { |pkg| Package.new(pkg) }
+      end
     end
   end
 end
