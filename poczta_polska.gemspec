@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
                        "as well as packages shipped by Pocztex. It allows you to see basic data " \
                        "about the consignment as well as all the post offices it has gone through " \
                        "(including their locations and opening hours). The data is downloaded from " \
-                       "[a public SOAP API of the Polish Post](http://www.poczta-polska.pl/pliki/webservices/" \
+                       "a public SOAP API of the Polish Post (http://www.poczta-polska.pl/pliki/webservices/" \
                        "Metody%20i%20struktury%20uslugi%20sieciowej%20Poczty%20Polskiej%20SA.pdf) " \
                        "and wrapped into Ruby classes for your convenience."
   spec.homepage      = "https://github.com/hejmsdz/poczta_polska.rb"
