@@ -70,6 +70,9 @@ Fixed the `Tracker#check_many` method, it didn't work at all before.
 ### 0.1.3
 Fixed more bugs in the `Tracker#check_many` method, created a test suite.
 
+### 0.1.4
+Fixed a response parsing error when events are not present.
+
 ## Testing
 
 I've created a test suite for all the requests and data structures. You
