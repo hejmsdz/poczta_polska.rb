@@ -85,7 +85,7 @@ module PocztaPolska
     # Returns a list of all events connected with the package
     # @return [Array<Event>]
     def events
-      @data[:dane_przesylki][:zdarzenia][:zdarzenie].map { |e| Event.new(e) }
+      @data[:dane_przesylki][:zdarzenia][:zdarzenie]&.map { |e| Event.new(e) } || []
     end
   end
 end
